@@ -42,10 +42,10 @@ public class Main {
         System.out.println("Вес двух бойцов  "   +  fightersWeight  + "кг") ;
         var differenceWight = fighterWeight2 - fighterWeight1;
         System.out.println("Разница в весе между двумя бойцами  "  + differenceWight + "кг");
-        var divisionWight = fighterWeight2 / fighterWeight1;
+        var divisionWight = fighterWeight1 / fighterWeight2;
         System.out.println("Деление  веса двух бойцов  " + divisionWight + "кг");
         //task 7
-        var remainderWeight =  (fighterWeight1 + fighterWeight2) % divisionWight ;
+        var remainderWeight =  (fighterWeight2 % fighterWeight1)  ;
         System.out.println("Остаток деления двух весов бойцов  " + remainderWeight +  "кг");
         var allHours = 640; //task8
         var oneEmployee = 8;
@@ -53,7 +53,7 @@ public class Main {
         System.out.println("Всего рабочих в компании  "  + allWorkers + "  работников");
         var newEmployee = allWorkers + 94;
         System.out.println(newEmployee);
-        var moreEmployee = newEmployee * oneEmployee;
+        var moreEmployee = allHours / newEmployee;
         System.out.println("В компании работает  " + newEmployee + "  человек, то всем сотрудникам  " + moreEmployee +   "  часа работы поделено на всех сотрудников");
     }
 }
