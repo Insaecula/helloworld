@@ -45,7 +45,7 @@ public class Main {
         var divisionWight = fighterWeight1 / fighterWeight2;
         System.out.println("Деление  веса двух бойцов  " + divisionWight + "кг");
         //task 7
-        var remainderWeight =  (fighterWeight2 % fighterWeight1)  ;
+        var remainderWeight =  (fighterWeight2 % fighterWeight1) / divisionWight  ;
         System.out.println("Остаток деления двух весов бойцов  " + remainderWeight +  "кг");
         var allHours = 640; //task8
         var oneEmployee = 8;
