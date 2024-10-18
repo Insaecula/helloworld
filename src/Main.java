@@ -20,7 +20,7 @@ public class Main {
                 boolean i = false;
                 System.out.println("Значение переменной с типом " +  "boolean  "+   " равно  " + i);
                 //task 2
-                double  doubllle = 2.786;
+                double  doubllle = 2.786;//3
                 System.out.println("Переменная типа double " );
                 long longEr = 987678965549L;
                 System.out.println("Переменная типа  long ");
