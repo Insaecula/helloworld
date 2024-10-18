@@ -20,18 +20,18 @@ public class Main {
                 boolean i = false;
                 System.out.println("Значение переменной с типом " +  "boolean  "+   " равно  " + i);
                 //task 2
-                double  doubllle = 27.12F;
+                double  doubllle = 2.786;
                 System.out.println("Переменная типа double " );
                 long longEr = 987678965549L;
                 System.out.println("Переменная типа  long ");
-                float floatTer= 27.86F;
+                float floatTer= 27.12F;
                 System.out.println("Переменная типа float " );
-                int  integer = 569;
-                System.out.println("Переменная типа int");
+                char  charat = 569;
+                System.out.println("Переменная типа char");
                 short shorty = -159;
                 System.out.println("Переменная типа short");
-                char charat = 27897;
-                System.out.println("Переменная типа char");
+                int integer = 27897;
+                System.out.println("Переменная типа int");
                 byte byter = 67;
                 System.out.println("Переменная типа byte");
                 //task 3
@@ -48,16 +48,16 @@ public class Main {
                 int paperStudents = allPaper / allStudents ;
                 System.out.println("Бумаги на каждого ученика " + paperStudents);
                 //task 4
-                int mashine1 = 16;
-                System.out.println("За 2 минуты машина произвела " + mashine1 + " бутылок");
-                int mashine2 = 16 * 10;
-                System.out.println("За 20 минут машина произвела " + mashine2 + " бутылок");
-                int mashine3 = 720 * 16;
-                System.out.println("За сутки машина произвела " + mashine3 + " бутылок");
-                int mashine4 = 2160 * 16;
-                System.out.println(" За 3 дня машина произвела " + mashine4 + " бутылок");
-                int mashine5 = 22320 * 16;
-                System.out.println(" За месяц машина произвела " + mashine5 + " бутылок");
+        int mashine1 = 16;
+        System.out.println("За 2 минуты машина произвела " + mashine1 + " бутылок");
+        int mashine2 = 16 * 10;
+        System.out.println("За 20 минут машина произвела " + mashine2 + " бутылок");
+        int mashine3 = 720 * 16;
+        System.out.println("За сутки машина произвела " + mashine3 + " бутылок");
+        int mashine4 = 2160 * 16;
+        System.out.println(" За 3 дня машина произвела " + mashine4 + " бутылок");
+        int mashine5 = 22320 * 16;
+        System.out.println(" За месяц машина произвела " + mashine5 + " бутылок");
                 //task 5
                 int dye = 120;
                 System.out.println("Всего краски  " + dye);
@@ -69,13 +69,13 @@ public class Main {
                 System.out.println("Белой краски было куплено  " + whiteDye );
                 System.out.println("В школе где,  " + room + " классов, нужно  " + whiteDye + " банок белой краски и " +  brownDye + "  банок коричневой краски");
                 //task 6
-                short banana =  80 * 5;
+                short banana =  5 * 80;
                 System.out.println("Кол-во граммов в 5 бананах  " + banana);
-                int milk = 200 * 110;
+                int milk = 200 * 105;
                 System.out.println("Кол-во граммов в 200мл молока " + milk);
-                int iceCream = 200 / 100 * 105;
+                int iceCream = 2 * 100;
                 System.out.println("Кол-во граммов в 2 брикетах " + iceCream);
-                int eggs = 4 * 7;
+                int eggs = 4 * 70;
                 System.out.println("Кол-во граммов в 4 яйцах " + eggs);
                 int allGram = banana + milk + iceCream + eggs;
                 System.out.println("Вес в граммах  " + allGram);
@@ -85,11 +85,11 @@ public class Main {
                 int startWeight = 7;
                 int minWeight = 250;
                 int maxWeight = 500;
-                int startGram = (int) (startWeight * 1000.0);
-                System.out.println(startGram);
-                int minGram = minWeight / startWeight;
-                int maxGram =  maxWeight / startWeight  ;
-                int midleDays = (minGram + maxGram) / 2;
+                double startGram =  startWeight * 1000;
+                System.out.println("Вес в граммах  " + startGram);
+                double minGram = startGram / minWeight ;
+                double  maxGram =  startGram / maxWeight;
+                int  midleDays = (int) ((minGram + maxGram) / 2);
                 System.out.println("Если спортсмен будет худеть каждый день на 250 грамм " + minGram);
                 System.out.println("Если спортсмен будет худеть каждый день на 500 грамм  "  + maxGram);
                 System.out.println("Если в среднем " + midleDays);
@@ -97,17 +97,17 @@ public class Main {
                 int masha = 67760;
                 int denis = 83690;
                 int kristina = 76230;
-                int mashaPlus = masha / 100 * 10;
-                int denisPlus = denis / 100 * 10;
-                int kristinaPlus = kristina / 100 * 10;
-                int masha1 = masha + mashaPlus;
-                int denis1 = denis + denisPlus;
-                int kristina1 = kristina + kristinaPlus;
-                int mashaYear = mashaPlus * 12;
-                int denisYear = denisPlus * 12;
-                int kristinaYear = kristinaPlus * 12;
-                System.out.println("Маша теперь получает " + masha1 + " рублей, годовой доход вырос на " + mashaYear + " рублей");
-                System.out.println("Денис теперь получает " + denis1 + " рублей, годовой доход вырос на " + denisYear + " рублей");
-                System.out.println("Кристина теперь получает " + kristina1 + " рублей, годовой доход вырос на " + kristinaYear + " рублей");
+                int mashaUp = masha / 100 * 10;
+                int denisUp = denis / 100 * 10;
+                int kristinaUp = kristina / 100 * 10;
+                int mashaNew = masha + mashaUp;
+                int denisNew = denis + denisUp;
+                int kristinaNew = kristina + kristinaUp;
+                int mashaYear = mashaUp * 12;
+                int denisYear = denisUp * 12;
+                int kristinaYear = kristinaUp * 12;
+                System.out.println("Маша теперь получает " + mashaNew + " рублей, годовой доход вырос на " + mashaYear + " рублей");
+                System.out.println("Денис теперь получает " + denisNew + " рублей, годовой доход вырос на " + denisYear + " рублей");
+                System.out.println("Кристина теперь получает " + kristinaNew + " рублей, годовой доход вырос на " + kristinaYear + " рублей");
             }
         }
