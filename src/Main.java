@@ -71,7 +71,7 @@ public class Main {
                 //task 6
                 short banana =  5 * 80;
                 System.out.println("Кол-во граммов в 5 бананах  " + banana);
-                int milk = 2 * 105;
+                int milk = 2 * 105; //
                 System.out.println("Кол-во граммов в 200мл молока " + milk);
                 int iceCream = 2 * 100;
                 System.out.println("Кол-во граммов в 2 брикетах " + iceCream);
