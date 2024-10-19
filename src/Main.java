@@ -49,16 +49,15 @@ public class Main {
                 int paperStudents = allPaper / allStudents ;
                 System.out.println("Бумаги на каждого ученика " + paperStudents);
                 //task 4
-                int mashine1 = 16;
-                System.out.println("За 2 минуты машина произвела " + mashine1 + " бутылок");
-                int mashine2 = 16 * 10;
-                System.out.println("За 20 минут машина произвела " + mashine2 + " бутылок");
-                int mashine3 = 720 * 16;
-                System.out.println("За сутки машина произвела " + mashine3 + " бутылок");
-                int mashine4 = 2160 * 16;
-                System.out.println(" За 3 дня машина произвела " + mashine4 + " бутылок");
-                int mashine5 = 22320 * 16;
-                System.out.println(" За месяц машина произвела " + mashine5 + " бутылок");
+        int Min2 = 16;
+        int Min20 = Min2 * 16;
+        int hours24 = Min20 * 3 * 24;
+        int days3 = hours24 * 3;
+        int month = hours24 * 30;;
+        System.out.println("За 20 минут машина сделала  " + Min20 + " штук");
+        System.out.println("За сутки машина сделала " + hours24 + " штук ");
+        System.out.println("За три дня машина сделала " + days3 + " штук");
+        System.out.println("За месяц машина сделала " + month + " штук ");
                 //task 5
                 int dye = 120;
                 System.out.println("Всего краски  " + dye);
@@ -72,7 +71,7 @@ public class Main {
                 //task 6
                 short banana =  5 * 80;
                 System.out.println("Кол-во граммов в 5 бананах  " + banana);
-                int milk = 200 * 105;
+                int milk = 2 * 105;
                 System.out.println("Кол-во граммов в 200мл молока " + milk);
                 int iceCream = 2 * 100;
                 System.out.println("Кол-во граммов в 2 брикетах " + iceCream);
@@ -90,7 +89,7 @@ public class Main {
                 System.out.println("Вес в граммах  " + startGram);
                 double minGram = startGram / minWeight ;
                 double  maxGram =  startGram / maxWeight;
-                int  midleDays = (int) ((minGram + maxGram) / 2);
+               double   midleDays =  minGram + maxGram / 2;
                 System.out.println("Если спортсмен будет худеть каждый день на 250 грамм " + minGram);
                 System.out.println("Если спортсмен будет худеть каждый день на 500 грамм  "  + maxGram);
                 System.out.println("Если в среднем " + midleDays);
@@ -112,4 +111,3 @@ public class Main {
                 System.out.println("Кристина теперь получает " + kristinaNew + " рублей, годовой доход вырос на " + kristinaYear + " рублей");
             }
         }
-
