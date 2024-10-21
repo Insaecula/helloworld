@@ -68,7 +68,7 @@ public class Main {
             int number1 = 2;
                 int number2 = 2;
                 int number3 = 3 ;
-                if (number1 <= number2 && number2 > number1) {
+                if (number1 <number2 && number2 > number1) {
                     System.out.println("Это число больше  " + number1);
                 }
                 else if ( number2 > number1  && number2 < number3) {
