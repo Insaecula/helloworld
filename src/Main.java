@@ -18,7 +18,7 @@ public class Main {
             }
             //task 3
             int year = 2024;
-            if (year % 4 == 0 && 100 != 0 || year % 400 == 0) {
+            if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
                 System.out.println("Год " + year + " високосный ");
             } else {
                 System.out.println("Год " + year + " не високосный");
@@ -36,29 +36,34 @@ public class Main {
                 System.out.println(" Доставки нет ");
                 //task 5
                 int monthNumber = 12;
-                switch (monthNumber) {
-                    case 12:
-                    case 2:
-                    case 1:
-                        System.out.println(" Пренадлежит к сезону зима" + monthNumber);
-                        break;
-                    case 3:
-                    case 4:
-                    case 5:
-                        System.out.println(monthNumber + " пренадлежат к сезону весна");
-                        break;
-                    case 6:
-                    case 7:
-                    case 8:
-                        System.out.println(monthNumber + " Пренадлежит к сезону лето");
-                        break;
-                    case 9:
-                    case 10:
-                    case 11:
-                        System.out.println(monthNumber + " Пренадлежит к сезону осень");
-                        break;
-                    default:
-                        System.out.println(" нету такого сезона");
+                if (monthNumber < 1 || monthNumber > 12) {
+                    System.out.println("Ошибка");
+                    switch (monthNumber) {
+                        case 12:
+                        case 2:
+                        case 1:
+
+                            System.out.println( " Пренадлежит к сезону зима" + monthNumber);
+                            break;
+                        case 3:
+                        case 4:
+                        case 5:
+
+                            System.out.println(monthNumber + " пренадлежат к сезону весна" );
+                            break;
+                        case 6:
+                        case 7:
+                        case 8:
+                            System.out.println(monthNumber + " Пренадлежит к сезону лето");
+                            break;
+                        case 9:
+                        case 10:
+                        case 11:
+                            System.out.println(monthNumber + " Пренадлежит к сезону осень" );
+                            break;
+                        default:
+                            System.out.println(" нету такого сезона");
+                    }
                 }
             }
         }
