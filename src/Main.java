@@ -11,7 +11,7 @@ public class Main {
                System.out.println(i);
            }
            //task 3
-        for ( int i = 0; i <= 17; i = i + 1 ) {
+        for ( int i = 0; i <= 17; i = i + 2 ) {
             System.out.println(i);
         }
         //task 4
@@ -33,13 +33,13 @@ public class Main {
         //task 8
         int salary = 29000;
         int total = 0;
-        for (int i = 0; i < 12; i++ ) {
+        for (int i = 1; i <= 12; i++  ) {
             //task 9 сразу тут пишу переменная не выводиться
-            total = total +total/100;
-
             total = total + salary;
-            System.out.println("Месяц " + i + " Итого " + total);
+            total = total + total/100;
+            System.out.println("Месяц " + i  + " Итого " + total);
         }
+        System.out.println(total);
         //task 10
         int table = 2;
         int multiPliCation = 0;
