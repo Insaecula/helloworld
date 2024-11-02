@@ -5,13 +5,12 @@ public class Main {
         //task1
         int salary = 15000;
         int total = 0;
-        int day = 0;
+        int month = 0;
         while (total < 2_495_000) {
             total = total + salary;
-            day++;
-            if (total % 5 == 0) {
-            }
-            System.out.println("день " + day + " Того " + total);
+            month++;
+            total += salary;
+            System.out.println("день " + month + " Того " + total);
         }
         //task2
         int i = 1;
@@ -35,16 +34,17 @@ public class Main {
                 population += population * birthRate / 1000 - population * death / 1000;
                 System.out.println("Год " + years + " численность населения " + population);
                 //task 4
-                int initialDeposit = 15000;
+                int initiAlDeposit = 15000;
                 int targetAmount = 12000000;
                 double monthlyInterestRate = 0.07;
                 int months = 0;
-                double currentAmount = initialDeposit;
-                while (currentAmount < targetAmount) {
+                double curRentAmount = initiAlDeposit;
+                while (curRentAmount < targetAmount) {
                     months++;
-                    currentAmount += currentAmount * monthlyInterestRate;
+                    curRentAmount += curRentAmount * monthlyInterestRate;
+                    //task 5
                     if (months % 6 == 0) {
-                        System.out.println("Месяц " + months + "  рублей " + currentAmount);
+                        System.out.println("Месяц " + months + "  рублей " + curRentAmount);
                     }
                 }
                 System.out.println("Василию потребуется " + months + " месяцев, чтобы накопить 12 миллионов рублей");
@@ -56,7 +56,7 @@ public class Main {
 
                 double currentDeposit = initialAmount;
 
-                for (int month = 1; month <= totalMonths; month++) {
+                for (int month2 = 1; month2 <= totalMonths; month2++) {
 
                     currentDeposit += currentDeposit * monthlyRate;
 
