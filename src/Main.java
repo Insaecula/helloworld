@@ -18,70 +18,67 @@ public class Main {
             System.out.print(i + " ");
             i++;
         }
-
-
         System.out.println();
-
-
-        for (int j = 10; j >= 1; j--) {
+        for (int j = 10; j >= 1; j--)
             System.out.print(j + " ");
-            //task 3
-            int population = 12_000_000;
-            int birthRate = 17;
-            int death = 8;
-            int yearNow = 2024;
-            for (int years = yearNow; years < yearNow + 10; years++) {
-                population += population * birthRate / 1000 - population * death / 1000;
-                System.out.println("Год " + years + " численность населения " + population);
-                //task 4
-                int initiAlDeposit = 15000;
-                int targetAmount = 12000000;
-                double monthlyInterestRate = 0.07;
-                int months = 0;
-                double curRentAmount = initiAlDeposit;
-                while (curRentAmount < targetAmount) {
-                    months++;
-                    curRentAmount += curRentAmount * monthlyInterestRate;
-                    //task 5
-                    if (months % 6 == 0) {
-                        System.out.println("Месяц " + months + "  рублей " + curRentAmount);
-                    }
-                }
-                System.out.println("Василию потребуется " + months + " месяцев, чтобы накопить 12 миллионов рублей");
-                //task 6
-                int initialAmount = 15000;
-                double monthlyRate = 0.07;
-                int totalMonths = 9 * 12;
-                int periodMonths = 6;
 
-                double currentDeposit = initialAmount;
+        //task 3
+        int population = 12_000_000;
+        int birthRate = 17;
+        int death = 8;
+        int yearNow = 2024;
+        for (int years = yearNow; years < yearNow + 10; years++) {
+            population += population * birthRate / 1000 - population * death / 1000;
+            System.out.println("Год " + years + " численность населения " + population);
+        }
+        //task 4
+        int initiAlDeposit = 15000;
+        int targetAmount = 12000000;
+        double monthlyInterestRate = 0.07;
+        int months = 0;
+        double curRentAmount = initiAlDeposit;
+        while (curRentAmount < targetAmount) {
+            months++;
+            curRentAmount += curRentAmount * monthlyInterestRate;
+            //task 5
+            if (months % 6 == 0) {
+                System.out.println("Месяц " + months + "  рублей " + curRentAmount);
+            }
+        }
+        System.out.println("Василию потребуется " + months + " месяцев, чтобы накопить 12 миллионов рублей");
 
-                for (int month2 = 1; month2 <= totalMonths; month2++) {
+        //task 6
+        int initialAmount = 15000;
+        double monthlyRate = 0.07;
+        int totalMonths = 9 * 12;
+        int periodMonths = 6;
 
-                    currentDeposit += currentDeposit * monthlyRate;
+        double currentDeposit = initialAmount;
+
+        for (int month2 = 1; month2 <= totalMonths; month2++) {
+
+            currentDeposit += currentDeposit * monthlyRate;
 
 
-                    if (month % periodMonths == 0) {
-                        int yearss = month / 12;
-                        int months1 = month % 12;
-                        System.out.printf(" Через " + yearss + " лет " + months1 + " месяцев рублей " + currentDeposit);
-                        //task 7
-                        int friday = 1;
-                        while (friday <= 31) {
-                            System.out.println("Сегодня пятница, " + friday + " -е число.Необходимо подготовить отчет");
-                            friday += 7;
-                            //task 8
-                            int startYear = 2024 - 200;
-                            int endYear = 2024 + 100;
-                            int cometPeriod = 79;
+            if (month % periodMonths == 0) {
+                int yearss = month / 12;
+                int months1 = month % 12;
+                System.out.printf(" Через " + yearss + " лет " + months1 + " месяцев рублей " + currentDeposit);
+                //task 7
+                int friday = 1;
+                while (friday <= 31) {
+                    System.out.println("Сегодня пятница, " + friday + " -е число.Необходимо подготовить отчет");
+                    friday += 7;
+                    //task 8
+                    int startYear = 2024 - 200;
+                    int endYear = 2024 + 100;
+                    int cometPeriod = 79;
 
-                            System.out.println("Годы, когда комета пролетала над Землей за последние 200 лет и в ближайшие 100 лет:");
+                    System.out.println("Годы, когда комета пролетала над Землей за последние 200 лет и в ближайшие 100 лет:");
 
-                            for (int year = startYear; year <= endYear; year++) {
-                                if (year % cometPeriod == 0) {
-                                    System.out.println(year);
-                                }
-                            }
+                    for (int year = startYear; year <= endYear; year++) {
+                        if (year % cometPeriod == 0) {
+                            System.out.println(year);
                         }
                     }
                 }
@@ -89,3 +86,4 @@ public class Main {
         }
     }
 }
+
