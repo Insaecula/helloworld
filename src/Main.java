@@ -59,7 +59,7 @@ public class Main {
 
             currentDeposit += currentDeposit * monthlyRate;
 
-
+        }
             if (month % periodMonths == 0) {
                 int yearss = month / 12;
                 int months1 = month % 12;
@@ -69,6 +69,7 @@ public class Main {
                 while (friday <= 31) {
                     System.out.println("Сегодня пятница, " + friday + " -е число.Необходимо подготовить отчет");
                     friday += 7;
+                }
                     //task 8
                     int startYear = 2024 - 200;
                     int endYear = 2024 + 100;
@@ -84,6 +85,6 @@ public class Main {
                 }
             }
         }
-    }
-}
+
+
 
