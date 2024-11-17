@@ -45,26 +45,26 @@ public class Main {
         }
     }
     private static boolean isDeviceOld(int deviceYear) {
-        int currentYear = LocalDate.now().getYear();
+        int currentYear = 2015;
         return deviceYear <= currentYear;
     }
 
-     private static int calculateDeliveryDays(int deliveryDistance) {
-         int result = 1;
+    private static int calculateDeliveryDays(int distance) {
+        int result = 1;
+        int maxDeliveryDistance = 95;
 
-         if(deliveryDistance > 20) {
-             result++;
-             System.out.println("Потребуется дней "  + result);
-         }
-         if (deliveryDistance > 60) {
-             result++;
-             System.out.println("Потребуется дней "  + + result);
-         }
-         if (deliveryDistance > 100) {
-             result = - 1;
-             System.out.println("Потребуется дней "  + + result);
-         }
-         return  result;
-     }
- }
+        if (distance > maxDeliveryDistance) {
+            return -1;
 
+        }
+
+        if (distance > 20) {
+            result++;
+        }
+        if (distance > 60) {
+            result++;
+        }
+      System.out.println("доставки нет ");
+        return result;
+    }
+}
