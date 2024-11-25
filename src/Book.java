@@ -1,5 +1,5 @@
 public class Book {
-    private  String title;
+    private String title;
     private int publicationYear;
     private Author author;
 
@@ -24,4 +24,6 @@ public class Book {
     public void setPublicationYear(int publicationYear) {
         this.publicationYear = publicationYear;
     }
-}
+
+
+    }

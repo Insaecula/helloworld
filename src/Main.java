@@ -5,6 +5,9 @@ public class Main {
         Author author1 = new Author("Leo ", "Tolstoy");
         Author author2 = new Author("Fyodor ", "Dostoevsky");
 
+        System.out.println(author1.equals(author2));
+
+
         Book book1 = new Book("Война и мир", 1869, author1);
         Book book2 = new Book("Преступление и наказание", 1842, author2);
 
@@ -13,4 +16,5 @@ public class Main {
 
 
     }
-}
+
+    }

@@ -4,8 +4,8 @@ public class Author {
 
 
     public Author(String firstName, String lastName) {
-    this.firstName = firstName;
-    this.lastName = lastName;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public String getFirstName() {
@@ -15,6 +15,29 @@ public class Author {
     public String getLastName() {
         return lastName;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Author author = (Author) o;
+        return firstName.equals(author.firstName) &&
+                lastName.equals(author.lastName);
+    }
+
+    public int hashCode() {
+        int result = firstName.hashCode();
+        result =  result + lastName.hashCode();
+        return result;
+    }
+    @Override
+    public String toString() {
+ return "Author{" + "firstName" + firstName + '\'' + " lastName=" + lastName + '\'' + '}';
+
+
+    }
+
 }
 
 
