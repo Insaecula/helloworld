@@ -25,7 +25,7 @@ public class Author {
         return firstName.equals(author.firstName) &&
                 lastName.equals(author.lastName);
     }
-
+@Override
     public int hashCode() {
         int result = firstName.hashCode();
         result =  result + lastName.hashCode();

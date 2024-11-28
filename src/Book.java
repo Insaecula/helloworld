@@ -30,6 +30,7 @@ public class Book {
     public String toString() {
         return "Book{" + "title='" + title + "'" + ", author='" + author + "'" + '}';
     }
+    @Override
     public int hashCode() {
         int result = title.hashCode();
         result = result + author.hashCode();
