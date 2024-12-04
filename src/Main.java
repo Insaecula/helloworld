@@ -4,12 +4,12 @@ import java.util.Random;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
 
-    private static Random RANDOM = new Random();
-    private static String[] NAME = {"Дмитрий", "Егор", "Александр", " Кирилл", "Ви"};
-    private static String[] LASTNAME = {"Дмитриевич", "Егорович", "Александрович", "Кириллович", " Виевич"};
-    private static String[] SURNAME = {"Дмитриев", " Егоров", " Александров", "Кириллов", "Виев"};
+    private static final Random RANDOM = new Random();
+    private static final String[] NAME = {"Дмитрий", "Егор", "Александр", " Кирилл", "Ви"};
+    private static final String[] LASTNAME = {"Дмитриевич", "Егорович", "Александрович", "Кириллович", " Виевич"};
+    private static final String[] SURNAME = {"Дмитриев", " Егоров", " Александров", "Кириллов", "Виев"};
 
-    private static Employee[] EMPLOYEES = new Employee[10];
+    private static final Employee[] EMPLOYEES = new Employee[10];
 
     private static void initialEmployee() {
         for (int i = 0; i < EMPLOYEES.length; i++) {
@@ -25,7 +25,7 @@ public class Main {
     public static void main(String[] args) {
         initialEmployee();
         print();
-        System.out.println("Зарплата работяг " + sumSalarys());
+        System.out.println("Зарплата работяг " + getSumSalaries());
         System.out.println("Зарплата работяги с мин зп " + EmployeeMinSalary());
         System.out.println("Зарплата работяги с макс зп " + EmployeeMaxSalary());
         System.out.println("Зарплата работяги со средней зп " + sumMidleSalarys());
@@ -39,7 +39,7 @@ public class Main {
         }
     }
 
-    private static int sumSalarys() {
+    private static int getSumSalaries() {
         int sum = 0;
         for (Employee employee : EMPLOYEES) {
             sum += employee.getSalary();
@@ -68,7 +68,7 @@ public class Main {
     }
 
     private static double sumMidleSalarys() {
-        return  (double) sumSalarys() / EMPLOYEES.length;
+        return  (double) getSumSalaries() / EMPLOYEES.length;
     }
     private static void printFullName() {
         for (Employee employee : EMPLOYEES) {
