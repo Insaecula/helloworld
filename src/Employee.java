@@ -11,9 +11,9 @@ public class Employee {
 
     public Employee(String fullName, int department, int salary) {
         id = employeeId++;
-      this.fullName = fullName;
-      this.salary = salary;
-      this.department = department;
+        this.fullName = fullName;
+        this.salary = salary;
+        this.department = department;
 
     }
 
@@ -32,6 +32,7 @@ public class Employee {
     public String getFullName() {
         return fullName;
     }
+
     @Override
     public String toString() {
         return "Employee{" + "id=" + id + ", fullName='" + fullName + '\'' + ", department=" + department + ", salary=" + salary + '}';

@@ -9,7 +9,7 @@ public class Main {
     private static final String[] LASTNAME = {"Дмитриевич", "Егорович", "Александрович", "Кириллович", " Виевич"};
     private static final String[] SURNAME = {"Дмитриев", " Егоров", " Александров", "Кириллов", "Виев"};
 
-    private static  Employee[] employee = new Employee[10];
+    private static Employee[] employee = new Employee[10];
 
     private static void initialEmployee() {
         for (int i = 0; i < employee.length; i++) {
@@ -68,8 +68,9 @@ public class Main {
     }
 
     private static double sumMidleSalarys() {
-        return  (double) getSumSalaries() / employee.length;
+        return (double) getSumSalaries() / employee.length;
     }
+
     private static void printFullName() {
         for (Employee employee : employee) {
             System.out.println(employee.getFullName());
