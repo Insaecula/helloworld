@@ -94,7 +94,7 @@ public class Main {
         System.out.println("Если спортсмен будет худеть каждый день на 250 грамм " + minGram);
         System.out.println("Если спортсмен будет худеть каждый день на 500 грамм  " + maxGram);
         System.out.println("Если в среднем " + midleDays);
-        //task 8
+        //task  8
         int masha = 67760;
         int denis = 83690;
         int kristina = 76230;
