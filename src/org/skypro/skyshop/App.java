@@ -14,7 +14,7 @@ public class App {
         Product product4 = new Product("Апельсин", 90);
         Product product5 = new Product("Ананас", 200);
         Product product6 = new Product("Манго", 250);
-
+//
         ProductBasket basket = new ProductBasket();
         basket.addProduct(product1);
         basket.addProduct(product2);
