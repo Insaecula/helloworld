@@ -23,7 +23,7 @@ public class App {
         basket.addProduct(product5);
         //basket.addProduct(product6);
         basket.printBasketContents();
-
+        //
         System.out.println("Общая стоимость: " + basket.getTotalCost());
         System.out.println("Есть ли продукт 'Яблоко': " + basket.containsProduct("Яблоко"));
         System.out.println("Есть ли продукт 'Манго': " + basket.containsProduct("Манго"));
