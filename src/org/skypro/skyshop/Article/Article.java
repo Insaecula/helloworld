@@ -1,4 +1,4 @@
-package org.skypro.skyshop;
+package org.skypro.skyshop.Article;
 
 public class Article {
     private final String title;

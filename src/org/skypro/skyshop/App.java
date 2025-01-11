@@ -2,8 +2,9 @@ package org.skypro.skyshop;
 
 
 
-import org.skypro.skyshop.basket.SearchEngine;
-import org.skypro.skyshop.basket.Searchable;
+import org.skypro.skyshop.Article.Article;
+import org.skypro.skyshop.product.SearchEngine.SearchEngine;
+import org.skypro.skyshop.basket.Interface.Searchable;
 import org.skypro.skyshop.product.Product;
 import org.skypro.skyshop.product.SimpleProduct;
 import org.skypro.skyshop.product.DiscountedProduct;

@@ -1,8 +1,9 @@
-package org.skypro.skyshop.basket;
+package org.skypro.skyshop.product.SearchEngine;
 
 
+import org.skypro.skyshop.basket.Interface.Searchable;
 
- public class SearchEngine {
+public class SearchEngine {
     private Searchable[] items;
     private int count = 0;
 
