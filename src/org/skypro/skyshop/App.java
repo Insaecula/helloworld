@@ -2,13 +2,12 @@ package org.skypro.skyshop;
 
 
 
-import org.skypro.skyshop.Article.Article;
-import org.skypro.skyshop.product.DiscountedProduct;
-import org.skypro.skyshop.product.SearchEngine.SearchEngine;
-import org.skypro.skyshop.basket.Interface.Searchable;
+import org.skypro.skyshop.article.Article;
+import org.skypro.skyshop.product.DiscountProduct;
+import org.skypro.skyshop.search.SearchEngine;
+import org.skypro.skyshop.search.Searchable;
 import org.skypro.skyshop.product.Product;
 import org.skypro.skyshop.product.SimpleProduct;
-//import org.skypro.skyshop.product.DiscountedProduct;
 import org.skypro.skyshop.product.FixPriceProduct;
 import org.skypro.skyshop.basket.ProductBasket;
 
@@ -19,11 +18,9 @@ public class App {
 
 
         Product product1 = new SimpleProduct("Товар 1", 100);
-        Product product2 = new DiscountedProduct("Товар 2", 200, 20);
+        Product product2 = new DiscountProduct("Товар 2", 200, 20);
         Product product3 = new FixPriceProduct("Товар 3");
-        Product product4 = new Product("Ноутбук" );
-        Product product5 = new Product("Телефон" ) ;
-        Product product6 = new Product("Наушники");
+
 
 
         ProductBasket basket = new ProductBasket();
@@ -32,13 +29,13 @@ public class App {
 
 
         basket.addProduct(product1);
-        //basket.addProduct(product2);
+        basket.addProduct(product2);
         basket.addProduct(product3);
-        searchEngine.add((Searchable) product5);
-        searchEngine.add((Searchable) product6);
-        searchEngine.add((Searchable) product4);
-        searchEngine.add((Searchable) article1);
-        searchEngine.add((Searchable) article2);
+        searchEngine.add(product1);
+        searchEngine.add(product2);
+        searchEngine.add(product3);
+        searchEngine.add(article1);
+        searchEngine.add(article2);
 
         Searchable[] results = searchEngine.search("Ноутбук");
         basket.printBasket();
