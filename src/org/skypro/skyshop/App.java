@@ -13,14 +13,37 @@ import org.skypro.skyshop.basket.ProductBasket;
 
 public class App {
     public static void main(String[] args) {
-        SearchEngine searchEngine = new SearchEngine(10);
+        try {
+            Product product1 = new SimpleProduct("   ", 20);  // Неправильное название
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ошибка: " + e.getMessage());
+        }
 
+        try {
+            Product product2 = new SimpleProduct("Laptop", -10);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ошибка: " + e.getMessage());
+        }
+
+        try {
+            Product product3 = new DiscountProduct("Phone", 100, 150);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ошибка: " + e.getMessage());
+        }
+
+        try {
+            Product product4 = new DiscountProduct("Tablet", 200, 50);
+            System.out.println("Продукт создан: " + product4.getName());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ошибка: " + e.getMessage());
+        }
+
+        SearchEngine searchEngine = new SearchEngine(10);
 
 
         Product product1 = new SimpleProduct("Товар 1", 100);
         Product product2 = new DiscountProduct("Товар 2", 200, 20);
         Product product3 = new FixPriceProduct("Товар 3");
-
 
 
         ProductBasket basket = new ProductBasket();
@@ -59,4 +82,3 @@ public class App {
         }
     }
 }
-
