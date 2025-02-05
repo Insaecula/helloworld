@@ -1,6 +1,7 @@
 package org.skypro.skyshop;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.skypro.skyshop.Exception.BestResultNotFound;
 import org.skypro.skyshop.article.Article;
@@ -14,8 +15,12 @@ import org.skypro.skyshop.basket.ProductBasket;
 
 public class App {
     public static void main(String[] args) {
-        ProductBasket basket = new ProductBasket();
-        List<Searchable> items = new ArrayList<>();
+        SearchEngine searchEngine = new SearchEngine();
+        Map<String, Searchable> searchResults = searchEngine.search("query");
+        for (Map.Entry<String, Searchable> entry : searchResults.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+
+        }
 
         try {
             Product product1 = new SimpleProduct("   ", 20);  // Неправильное название
@@ -41,6 +46,7 @@ public class App {
         } catch (IllegalArgumentException e) {
             System.out.println("Ошибка: " + e.getMessage());
         }
+        ProductBasket basket = null;
         List<Product> removedProducts = basket.removeProductByName("Яблоко");
         System.out.println("\nУдаленные продукты:");
         removedProducts.forEach(p -> System.out.println("- " + p.getName()));
@@ -52,8 +58,8 @@ public class App {
             System.out.println("\nСписок пуст");
         }
 
-        SearchEngine searchEngine = new SearchEngine();
-        items = new ArrayList<>();
+        searchEngine = new SearchEngine();
+        ArrayList<Object> items = new ArrayList<>();
         items.add(() -> "Apple pie");
         items.add(() -> "Banana smoothie");
         items.add(() -> "Green apple");
@@ -93,7 +99,7 @@ public class App {
             searchEngine.add(article1);
             searchEngine.add(article2);
 
-            Searchable[] results = searchEngine.search("Ноутбук");
+            Map<String, Searchable> results = searchEngine.search("Ноутбук");
             System.out.println("\nРезультаты поиска:");
             for (Searchable item : results) {
                 if (item != null) {
@@ -105,11 +111,8 @@ public class App {
             System.out.println("Есть ли товар 'Товар 1' в корзине? " + basket.containsProduct("Товар 1"));
             System.out.println("Есть ли товар 'Товар 4' в корзине? " + basket.containsProduct("Товар 4"));
 
-
             basket.clearBasket();
 
-
-                    basket.clearBasket();
                     System.out.println("\nКорзина после очистки:");
                     basket.printBasket();
                 }

@@ -1,72 +1,37 @@
 package org.skypro.skyshop.basket;
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.*;
+
 import org.skypro.skyshop.product.Product;
 
 public class ProductBasket {
-    private final List<Product> products;
+    private Map<String, List<Product>> productsMap;
 
     public ProductBasket() {
-        this.products = new ArrayList<>();
+        productsMap = new HashMap<>();
     }
 
 
     public void addProduct(Product product) {
-        if (product != null) {
-            products.add(product);
-        } else {
-            System.out.println("Ошибка: Нельзя добавить null-продукт.");
-        }
+        productsMap.computeIfAbsent(product.getName(), k -> new ArrayList<>()).add(product);
     }
 
+    public List<Product> getProductsByName(String name) {
+        return productsMap.getOrDefault(name, Collections.emptyList());
+    }
 
     public List<Product> removeProductByName(String name) {
-        List<Product> removedProducts = new ArrayList<>();
-        products.removeIf(product -> {
-            if (product.getName().equals(name)) {
-                removedProducts.add(product);
-                return true;
-            }
-            return false;
-        });
-        return removedProducts;
+        productsMap.remove(name);
+        return List.of();
     }
-
-
-    public boolean containsProduct(String name) {
-        for (Product product : products) {
-            if (product.getName().equals(name)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-
-    public void clearBasket() {
-        products.clear();
-    }
-
 
     public void printBasket() {
-        if (products.isEmpty()) {
-            System.out.println("Корзина пуста.");
-            return;
-        }
-
-        System.out.println("Товары в корзине:");
-        int specialCount = 0;
-        double totalCost = 0;
-
-        for (Product product : products) {
-            if (product.isSpecial()) {
-                specialCount++;
+        for (List<Product> productList : productsMap.values()) {
+            for (Product product : productList) {
+                System.out.println(product);
             }
-            totalCost += product.getPrice();
-            System.out.println("- " + product.getName() + " | Цена: " + product.getPrice());
         }
-
-        System.out.println("Итого: " + totalCost);
-        System.out.println("Специальных товаров: " + specialCount);
     }
 }
+
+
