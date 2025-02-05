@@ -57,7 +57,7 @@ public class App {
         if (removedNonExistent.isEmpty()) {
             System.out.println("\nСписок пуст");
         }
-
+//
         searchEngine = new SearchEngine();
         ArrayList<Object> items = new ArrayList<>();
         items.add(() -> "Apple pie");
