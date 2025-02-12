@@ -2,48 +2,25 @@ package org.skypro.skyshop.search;
 
 import org.skypro.skyshop.Exception.BestResultNotFound;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class SearchEngine {
-    private Searchable[] searchableItems;
-    private int currentIndex = 0;
+    private Set<Searchable> items = new HashSet<>();
 
-
-    public SearchEngine(int size) {
-        searchableItems = new Searchable[size];
-    }
 
     public SearchEngine() {
-
     }
 
 
     public void add(Searchable item) {
-        if (currentIndex < searchableItems.length) {
-            searchableItems[currentIndex++] = item;
-        } else {
-            System.out.println("Массив поиска переполнен");
-        }
+        items.add(item);
     }
 
 
-    public Map<String, Searchable> search(String query) {
-        List<Searchable> searchResults = getSearchResults(query);
-        Map<String, Searchable> sortedResults = new TreeMap<>();
-        for (Searchable result : searchResults) {
-            sortedResults.put(result.getName(), result);
-        }
-        return sortedResults;
-    }
-
-
-    private List<Searchable> getSearchResults(String query) {
-        List<Searchable> results = new ArrayList<>();
-        for (Searchable item : searchableItems) {
-            if (item != null && item.getSearchTerm().contains(query)) {
+    public Set<Searchable> search(String query) {
+        Set<Searchable> results = new TreeSet<>(new SearchableComparator());
+        for (Searchable item : items) {
+            if (item.getSearchTerm().contains(query)) {
                 results.add(item);
             }
         }
@@ -96,5 +73,17 @@ public class SearchEngine {
         }
 
         return count;
+    }
+
+
+    private static class SearchableComparator implements Comparator<Searchable> {
+        @Override
+        public int compare(Searchable o1, Searchable o2) {
+            int lengthCompare = Integer.compare(o2.getName().length(), o1.getName().length());
+            if (lengthCompare != 0) {
+                return lengthCompare;
+            }
+            return o1.getName().compareTo(o2.getName());
+        }
     }
 }

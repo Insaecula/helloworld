@@ -32,6 +32,13 @@ public class ProductBasket {
             }
         }
     }
+
+    public void clearBasket() {
+    }
+
+    public String addProduct(String телевизор) {
+        return null;
+    }
 }
 
 

@@ -1,73 +1,75 @@
 package org.skypro.skyshop;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 import org.skypro.skyshop.Exception.BestResultNotFound;
 import org.skypro.skyshop.article.Article;
-import org.skypro.skyshop.product.DiscountProduct;
+import org.skypro.skyshop.product.*;
 import org.skypro.skyshop.search.SearchEngine;
 import org.skypro.skyshop.search.Searchable;
-import org.skypro.skyshop.product.Product;
-import org.skypro.skyshop.product.SimpleProduct;
-import org.skypro.skyshop.product.FixPriceProduct;
 import org.skypro.skyshop.basket.ProductBasket;
+
+import java.util.*;
 
 public class App {
     public static void main(String[] args) {
         SearchEngine searchEngine = new SearchEngine();
-        Map<String, Searchable> searchResults = searchEngine.search("query");
-        for (Map.Entry<String, Searchable> entry : searchResults.entrySet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue());
+        ProductBasket basket = new ProductBasket();
 
+
+        Product product1 = new SimpleProduct("Ноутбук", 1000);
+        Product product2 = new DiscountProduct("Телефон", 500, 10);
+        Product product3 = new FixPriceProduct("Планшет");
+        Article article1 = new Article("Ноутбук", "Это хороший ноутбук");
+        Article article2 = new Article("Телефон", "Лучший телефон в этом году");
+
+        searchEngine.add(product1);
+        searchEngine.add(product2);
+        searchEngine.add(product3);
+        searchEngine.add(article1);
+        searchEngine.add(article2);
+
+        basket.addProduct(product1);
+        basket.addProduct(product2);
+        basket.addProduct(product3);
+
+
+        Set<Searchable> searchResults = searchEngine.search("Ноутбук");
+        System.out.println("\nРезультаты поиска:");
+        for (Searchable item : searchResults) {
+            System.out.println("- " + item.getSearchTerm());
         }
 
-        try {
-            Product product1 = new SimpleProduct("   ", 20);  // Неправильное название
-        } catch (IllegalArgumentException e) {
-            System.out.println("Ошибка: " + e.getMessage());
-        }
 
-        try {
-            Product product2 = new SimpleProduct("Ноутбук", -10);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Ошибка: " + e.getMessage());
-        }
+        System.out.println("\nСодержимое корзины:");
+        basket.printBasket();
 
-        try {
-            Product product3 = new DiscountProduct("Телефон", 100, 150);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Ошибка: " + e.getMessage());
-        }
+        System.out.println("Есть ли товар 'Ноутбук' в корзине? " + basket.addProduct("Ноутбук"));
+        System.out.println("Есть ли товар 'Телевизор' в корзине? " + basket.addProduct("Телевизор"));
 
-        try {
-            Product product4 = new DiscountProduct("Таблетка", 200, 50);
-            System.out.println("Продукт создан: " + product4.getName());
-        } catch (IllegalArgumentException e) {
-            System.out.println("Ошибка: " + e.getMessage());
-        }
-        ProductBasket basket = null;
-        List<Product> removedProducts = basket.removeProductByName("Яблоко");
+
+        List<Product> removedProducts = basket.removeProductByName("Телефон");
         System.out.println("\nУдаленные продукты:");
         removedProducts.forEach(p -> System.out.println("- " + p.getName()));
+
         System.out.println("\nСодержимое корзины после удаления:");
         basket.printBasket();
 
-        List<Product> removedNonExistent = basket.removeProductByName("Товар 4");
-        if (removedNonExistent.isEmpty()) {
-            System.out.println("\nСписок пуст");
-        }
-//
-        searchEngine = new SearchEngine();
-        ArrayList<Object> items = new ArrayList<>();
-        items.add(() -> "Apple pie");
-        items.add(() -> "Banana smoothie");
-        items.add(() -> "Green apple");
-        items.add(() -> "Grape juice");
+
+        basket.clearBasket();
+        System.out.println("\nКорзина после очистки:");
+        basket.printBasket();
+
+
+        List<Searchable> items = new ArrayList<>();
+        items.add(product1);
+        items.add(product2);
+        items.add(product3);
+        items.add(article1);
+        items.add(article2);
+
         try {
-            List<Searchable> results = searchEngine.findBestMatches("Яблоко", items);
+            List<Searchable> bestMatches = searchEngine.findBestMatches("Ноутбук", items);
             System.out.println("\nНайденные результаты поиска:");
-            results.forEach(r -> System.out.println("- " + r.getSearchTerm()));
+            bestMatches.forEach(r -> System.out.println("- " + r.getSearchTerm()));
         } catch (BestResultNotFound e) {
             System.out.println("Ошибка: " + e.getMessage());
         }
@@ -78,45 +80,32 @@ public class App {
             noResults.forEach(r -> System.out.println("- " + r.getSearchTerm()));
         } catch (BestResultNotFound e) {
             System.out.println("Ошибка: " + e.getMessage());
+        }
 
 
-            Product product1 = new SimpleProduct("Товар 1", 100);
-            Product product2 = new DiscountProduct("Товар 2", 200, 20);
-            Product product3 = new FixPriceProduct("Товар 3");
+        try {
+            Product invalidProduct1 = new SimpleProduct("   ", 20);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ошибка: " + e.getMessage());
+        }
 
+        try {
+            Product invalidProduct2 = new SimpleProduct("Ноутбук", -10);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ошибка: " + e.getMessage());
+        }
 
-            basket = new ProductBasket();
-            Article article1 = new Article("Ноутбук", "Это хороший ноутбук");
-            Article article2 = new Article("Телефон", "Лучший телефон в этом году ");
+        try {
+            Product invalidProduct3 = new DiscountProduct("Телефон", 100, 150);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ошибка: " + e.getMessage());
+        }
 
-
-            basket.addProduct(product1);
-            basket.addProduct(product2);
-            basket.addProduct(product3);
-            searchEngine.add(product1);
-            searchEngine.add(product2);
-            searchEngine.add(product3);
-            searchEngine.add(article1);
-            searchEngine.add(article2);
-
-            Map<String, Searchable> results = searchEngine.search("Ноутбук");
-            System.out.println("\nРезультаты поиска:");
-            for (Searchable item : results) {
-                if (item != null) {
-                    System.out.println("- " + item.getSearchTerm());
-
-            basket.printBasket();
-
-
-            System.out.println("Есть ли товар 'Товар 1' в корзине? " + basket.containsProduct("Товар 1"));
-            System.out.println("Есть ли товар 'Товар 4' в корзине? " + basket.containsProduct("Товар 4"));
-
-            basket.clearBasket();
-
-                    System.out.println("\nКорзина после очистки:");
-                    basket.printBasket();
-                }
-            }
+        try {
+            Product validProduct = new DiscountProduct("Таблетка", 200, 50);
+            System.out.println("Продукт создан: " + validProduct.getName());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ошибка: " + e.getMessage());
         }
     }
 }
